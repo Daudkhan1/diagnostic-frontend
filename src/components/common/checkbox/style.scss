@@ -1,0 +1,38 @@
+@import "../../../styles/common";
+
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    .custom-checkbox {
+      font-size: 14px;
+  
+      &.ant-checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+  
+      .ant-checkbox {
+        &-inner {
+          width: 16px;
+          height: 16px;
+        }
+      }
+  
+      &.checkbox-error {
+        .ant-checkbox-inner {
+          border-color: $tag-red;
+        }
+      }
+    }
+  
+    .error-message {
+      font-size: 12px;
+      color: $tag-red;
+      margin-top: 4px;
+    }
+}
+  

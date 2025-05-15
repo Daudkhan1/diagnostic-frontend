@@ -1,0 +1,77 @@
+@import "../../styles/common";
+
+.slide-preview-container {
+  @include flexBox(row, flex-start, space-between);
+
+  padding: 12px;
+  border: 1px solid $preview-gray;
+  border-radius: 16px;
+  width: 100%;
+  background-color: $white;
+  transition: all 0.3s linear;
+
+  &:hover,
+  &.active {
+    transition: all 0.3s linear;
+    background-color: $hover-gray;
+    border-color: $primary-hover-blue;
+  }
+
+  &.scan-preview {
+    // justify-content: flex-start;
+    align-items: center;
+
+    .preview-content-only-container {
+      @include flexBox(row, center, space-between);
+
+      flex: 1;
+    }
+  }
+
+  .icon {
+    margin-right: 12px;
+  }
+
+  .ant-btn {
+    &.slider-go-to-button {
+      width: 28px;
+      height: 28px;
+      background-color: $preview-light-gray;
+      align-self: center;
+      box-shadow: none;
+
+      &:hover {
+        background-color: $preview-light-gray;
+      }
+    }
+
+    &.delete-slide-button {
+      height: max-content;
+      width: max-content;
+      background-color: transparent;
+      box-shadow: none;
+
+      .ant-btn-icon {
+        > svg {
+          > path {
+            stroke: $tag-red;
+          }
+        }
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .buttons-section {
+    @include flexBox(column, center);
+
+    align-self: center;
+    gap: 10px;
+  }
+}
+.delete-icon {
+  text-align: center;
+}

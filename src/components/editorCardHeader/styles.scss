@@ -1,0 +1,188 @@
+@import "../../styles/common";
+
+.annotation-header-details-wrapper {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .heading {
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .complete-slide {
+      background-color: $success-green;
+      width: 125px;
+      height: 28px;
+      font-size: 11px;
+      font-weight: 400;
+      border-radius: 90px;
+
+      &:hover {
+        background-color: $success-green;
+      }
+    }
+
+    .slide-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .name {
+        font-size: 12px;
+      }
+
+      .status {
+        border: 1px solid #f8b15d;
+        padding: 4px 10px;
+        border-radius: 80px;
+        font-size: 10px;
+        color: #f8b15d;
+      }
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f8b15d;
+
+      &.blue {
+        color: #3f8bfd;
+      }
+    }
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px; 
+    }
+  }
+}
+
+.strong-heading {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.button-radio {
+  width: 100%;
+  padding: 10px;
+  background-color: $light-gray;
+  min-height: 58px;
+  border-radius: 8px;
+  .ai-annotation-actions {
+    width: 100% !important;
+    width: max-content;
+    background-color: transparent;
+    border-radius: 10px;
+
+    .admin-table-type-selection-container {
+      padding: 0 !important;
+      width: 100%;
+      background: transparent !important;
+      .ant-radio-group {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        background: transparent;
+      }
+      .ant-radio-button-wrapper {
+        flex: 1;
+        text-align: center;
+        transition: all 0.3s;
+        font-size: 12px;
+        outline: none !important;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        &.ant-radio-button-wrapper-checked {
+          background-color: $white !important;
+          color: $tag-blue !important;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.select-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .ai-annotation-count {
+    .annotation-count {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      span svg {
+        display: block;
+      }
+    }
+  }
+  .checkbox-section {
+    display: flex;
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+
+      .custom-checkbox.ant-checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0px !important;
+      }
+    }
+    .accept-btn {
+      width: 109px;
+      height: 23px;
+      border-radius: 77.41px;
+      font-size: 9px;
+      font-weight: 400;
+    }
+    .undo-btn {
+      width: 109px;
+      height: 23px;
+      border-radius: 77.41px;
+      font-size: 9px;
+      font-weight: 400;
+      background: none !important;
+      border: 1px solid $tag-blue;
+      color: $tag-blue;
+      &:hover {
+        background: none !important;
+        color: $tag-blue;
+      }
+    }
+
+    @media (max-width: 1440px) {
+      flex-direction: column;
+      align-items: center;
+      .accept-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .ant-radio-button-wrapper {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .ant-radio-button-wrapper {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ant-radio-button-wrapper {
+    font-size: 10px !important;
+  }
+}

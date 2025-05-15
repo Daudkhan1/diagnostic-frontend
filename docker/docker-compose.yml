@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  cantaloupe:
+    image: islandora/cantaloupe:3.4.1
+    container_name: cantaloupe_image_server
+    ports:
+      - "8182:8182"  # Expose port 8182 to the host
+    environment:
+      - CANTALOUPE_HEAP_MIN=3G
+      - CANTALOUPE_HEAP_MAX=5G
+      - CANTALOUPE_HTTP_PORT=8182
+      - CANTALOUPE_FILESYSTEMCACHE_PATHNAME=/data/cache
+      - CANTALOUPE_FILESYSTEMSOURCE_BASICLOOKUPSTRATEGY_PATH_PREFIX=/cantaloupe/images/
+      - CANTALOUPE_SOURCE_STATIC=FilesystemSource
+      - CANTALOUPE_PROCESSOR_FALLBACK_RETRIEVAL_STRATEGY=StreamStrategy
+      - CANTALOUPE_PROCESSOR_MANUALSELECTIONSTRATEGY_TIF=JaiProcessor
+    volumes:
+      - ./images:/cantaloupe/images   # Mount your local 'images' directory for access
+      - ./cache:/data/cache  # Mount for cache
+    restart: unless-stopped

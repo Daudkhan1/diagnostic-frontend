@@ -1,0 +1,82 @@
+@import "../../../styles/common";
+
+.common-card-container {
+  background-color: $white;
+  border-radius: 22px;
+  height: 100%;
+  z-index: 10;
+
+  &.full-screen-open-sea-dragon {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    height: calc(100vh - 49px);
+  }
+
+  .common-card-header {
+    @include flexBox(row, center, space-between);
+
+    padding: 15px;
+    height: 63px;
+    border-bottom: 1px solid $slight-gray;
+
+    .heading {
+      font-size: 18px;
+      font-weight: 600;
+
+      .count {
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+
+    .add-button-with-icon {
+      height: 34px;
+      width: 150px;
+      border-radius: 70px;
+    }
+  }
+
+  .common-card-body {
+    padding: 15px;
+
+    .openseadragon-custom-wrapper {
+      height: 100%;
+      position: relative;
+      transform: rotate3d(0);
+      overflow: hidden;
+    }
+
+    &.full-screen-card {
+      padding: 0;
+      height: calc(100vh - 111px);
+    }
+
+    &.full-size {
+      padding: 0;
+      height: calc(100vh - 238px);
+    }
+
+    &.max-size {
+      padding: 0;
+      height: calc(100vh - 240px);
+ 
+      &.footer-buttons {
+        height: calc(100vh - 260px);
+      }
+    }
+
+    &.annotations-list-card {
+      position: relative;
+
+      padding-bottom: 0;
+
+      &.annotations-list-full-screen-card {
+        .annotation-list-container {
+          height: calc(100vh - 296px);
+        }
+      }
+    }
+  }
+}

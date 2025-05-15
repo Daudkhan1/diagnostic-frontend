@@ -1,0 +1,38 @@
+@import "./colors";
+
+@mixin flexBox($direction: row, $align: flex-start, $justify: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin custom-scrollbar(
+  $custom-height: 6px,
+  $custom-width: 6px,
+  $thumb-color: $mercury-darkest
+) {
+  &::-webkit-scrollbar {
+    width: $custom-width;
+    height: $custom-height;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+  }
+
+  // Moz Support
+  & {
+    scrollbar-color: $thumb-color transparent;
+    scrollbar-width: thin;
+
+    scrollbar-track-color: transparent;
+    scrollbar-face-color: $thumb-color;
+    scrollbar-arrow-color: white;
+    scrollbar-shadow-color: white;
+  }
+}

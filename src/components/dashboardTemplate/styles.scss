@@ -1,0 +1,197 @@
+@import "../../styles/common";
+
+.admin-template-main-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 24px;
+
+  height: 100vh;
+  padding: 24px;
+
+  position: relative;
+
+  transition: all 0.1s linear;
+
+  @media (min-width: $breakpoint-large) {
+    grid-template-columns: 300px 1fr;
+  }
+
+  &.main-container-collapsed {
+    grid-template-columns: 50px 1fr;
+    transition: all 0.1s linear;
+  }
+
+  .admin-template-dashboard-container {
+    @extend .fixed-container-height;
+
+    position: relative;
+
+    .select-container.prefix-icon {
+      position: absolute;
+
+      //   right: 24px;
+      //   top: 24px;
+      top: 0;
+      right: 0;
+    }
+
+    .navigation-header {
+      margin-bottom: 35px;
+
+      &.less-gap {
+        margin-bottom: 20px;
+      }
+
+      .ant-btn {
+        &.navigate-dashboard-button {
+          background-color: $charcoal-black;
+          border-radius: 8px;
+          height: 40px;
+          width: 40px;
+        }
+      }
+    }
+
+    .main-header-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      margin-top: 8px;
+      margin-bottom: 32px;
+
+      .heading {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .caption {
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+
+    .admin-table-fields-container {
+      margin-bottom: 10px;
+
+      .tabs-heading {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      &.radio-hidden {
+        display: none; 
+      }
+    }
+
+    .admin-additional-cards-list {
+      padding: 20px;
+      border-radius: 26px;
+      background-color: $white;
+      margin-bottom: 20px;
+
+      .admin-cards-list {
+        margin-bottom: 0;
+      }
+    }
+
+    .admin-cards-list {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .admin-table-fields-container {
+      @include flexBox(row, center, space-between);
+
+      .table-search-fields-container {
+        @include flexBox(row, center, space-between);
+
+        gap: 16px;
+
+        .ant-input-affix-wrapper {
+          &.common-search-field {
+            height: 48px;
+            width: 250px;
+          }
+        }
+
+        .ant-btn {
+          &.custom-button {
+            height: 50px;
+            width: max-content;
+
+            &.green {
+              background-color: $tag-green;
+
+              .primary-button-icon {
+                > svg {
+                  > path {
+                    stroke: $white;
+                  }
+                }
+              }
+
+              .primary-button-title {
+                color: $white;
+                font-weight: 800;
+                font-size: 16px;
+              }
+
+              &:hover {
+                background-color: $tag-green;
+              }
+            }
+          }
+
+          &.add-filter-button {
+            height: 48px;
+            width: 150px;
+          }
+
+          &.common-actions-button {
+            height: 36px;
+            width: 136px;
+            background: transparent;
+            border: 1px solid $black;
+            color: $black;
+            border-radius: 90px;
+            font-weight: 400;
+            font-size: 12px;
+
+            &.unassign {
+              border: 1px solid $red;
+              color: $red;
+            }
+
+            &.complete {
+              border: 1px solid $dark-success-green;
+              color: $dark-success-green;
+            }
+          }
+          &.filter-btn{
+            background-color: $black;
+          }
+        }
+
+        .ant-dropdown{
+          .filter-panel-wrapper {
+            background: $white;
+            padding: 10px;
+            width: 330px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+
+            .filter-panel-inner {
+              margin-bottom: 8px;
+              padding: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,371 @@
+@import "../../../styles/common";
+
+.table-wrapper {
+  position: relative;
+
+  .pagination-count {
+    position: absolute;
+
+    bottom: -32px;
+    left: 0;
+
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .custom-pagination {
+    &.ant-pagination {
+      position: absolute;
+      // bottom: 0;
+      bottom: -33px;
+      right: 0;
+
+      .ant-pagination-prev,
+      .ant-pagination-next,
+      .ant-pagination-item,
+      .ant-pagination-jump-next,
+      .ant-pagination-jump-prev {
+        @include flexBox(row, center, center);
+
+        min-width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        padding: 0;
+      }
+
+      .ant-pagination-jump-next,
+      .ant-pagination-jump-prev {
+        margin-right: 15px;
+
+        .ant-pagination-item-link {
+          .ant-pagination-item-container {
+            .anticon {
+              color: $black;
+            }
+
+            .ant-pagination-item-ellipsis {
+              font-size: 8px;
+              color: $gray;
+            }
+          }
+        }
+      }
+
+      .ant-pagination-prev,
+      .ant-pagination-next {
+        background-color: $black;
+
+        &.ant-pagination-disabled {
+          opacity: 0.4;
+        }
+
+        .ant-pagination-item-link {
+          font-size: 10px;
+
+          .anticon {
+            color: $white;
+          }
+        }
+      }
+
+      .ant-pagination-item {
+        background-color: $gray;
+        font-size: 10px;
+        font-weight: 400;
+
+        &.ant-pagination-item-active {
+          border-color: $white;
+          background-color: $white;
+
+          > a {
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-table-wrapper {
+    &.common-table-container {
+      &.large-table-body {
+        .ant-table {
+          &.ant-table-fixed-header {
+            .ant-table-container {
+              .ant-table-body {
+                max-height: calc(100vh - 282px) !important;
+              }
+            }
+          }
+        }
+      }
+
+      .ant-table {
+        &.ant-table-fixed-header {
+          .ant-table-container {
+            background-color: $app-background-iceblue;
+
+            .ant-table-header {
+              // max-width: 99%;
+
+              > table {
+                .ant-table-thead {
+                  > tr {
+                    .ant-table-cell {
+                      background-color: $secondary-blue;
+                      font-size: 14px;
+                      font-weight: 600;
+                      color: $white;
+                      padding: 10px;
+
+                      &.ant-table-column-has-sorters {
+                        .ant-table-column-sorters {
+                          justify-content: flex-start;
+                          gap: 20px;
+
+                          .ant-table-column-title {
+                            flex: 0;
+                          }
+                        }
+                      }
+
+                      &.ant-table-cell-scrollbar {
+                        box-shadow: none;
+                      }
+
+                      &:before {
+                        content: none;
+                      }
+
+                      &:first-child {
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                      }
+
+                      &:last-child {
+                        border-top-right-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                      }
+
+                      @media (min-width: $breakpoint-large) {
+                        padding: 18px 14px;
+
+                        &:first-child {
+                          border-top-left-radius: 10px;
+                          border-bottom-left-radius: 10px;
+                        }
+
+                        &.actions-cell {
+                          border-top-right-radius: 10px;
+                          border-bottom-right-radius: 10px;
+                        }
+
+                        &.ant-table-cell-scrollbar {
+                          box-shadow: none;
+                          background: unset;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .ant-table-body {
+              @include custom-scrollbar();
+
+              height: 100%;
+              max-height: calc(100vh - 460px) !important;
+              overflow: auto !important;
+              // max-width: 99%;
+
+              // min-height: 200px;
+              // custom scrollbar
+              .ant-table-body::-webkit-scrollbar {
+                width: 4px;
+              }
+
+              .ant-table-body::-webkit-scrollbar-track {
+                background-color: #e1e6e6;
+              }
+
+              .ant-table-body::-webkit-scrollbar-thumb {
+                border-radius: 6px;
+                background-color: green;
+              }
+
+              > table {
+                border-spacing: 0 10px;
+                background-color: $app-background-iceblue;
+                border-radius: 0;
+
+                .ant-table-tbody {
+                  > tr {
+                    .ant-table-cell {
+                      background-color: $white;
+                      font-size: 14px;
+                      font-weight: 400;
+                      border: 0;
+
+                      .bold-table-content {
+                        font-weight: 600;
+                      }
+
+                      &.ant-table-cell-row-hover {
+                        background-color: transparent;
+                        background-color: $white;
+                      }
+
+                      &:first-child {
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                      }
+
+                      &:last-child {
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                      }
+
+                      &.name-cell {
+                        font-weight: 500;
+                      }
+
+                      &.status-cell {
+                        .table-tags-column {
+                          @include flexBox(row, center);
+
+                          .ant-tag {
+                            @include flexBox(row, center, center);
+
+                            // margin-right: 20px;
+                            // width: 80px;
+                            // height: 25px;
+                            // border-radius: 80px;
+                            // font-size: 12px;
+                            // font-weight: 400;
+                            // border: 1px solid $tag-blue;
+                            // color: $tag-blue;
+                            // background-color: $white;
+
+                            margin-right: 10px;
+                            border-radius: 80px;
+                            width: 80px;
+                            height: 25px;
+                            font-size: 10px;
+                            font-weight: 400;
+                            border: 1px solid $tag-blue;
+                            color: $tag-blue;
+                            background-color: $white;
+
+                            &.active {
+                              border-color: $tag-green;
+                              color: $tag-green;
+                            }
+
+                            &.inactive {
+                              border-color: $tag-red;
+                              color: $tag-red;
+                            }
+                          }
+                        }
+                      }
+
+                      .table-actions-container {
+                        @include flexBox(row, center);
+
+                        // gap: 20px;
+                        gap: 10px;
+
+                        .ant-btn {
+                          &.view-action-button {
+                            .text-only-button-title {
+                              font-size: 14px;
+                              font-weight: 400;
+                              color: $tag-green;
+                            }
+                          }
+
+                          &.edit-action-button {
+                            .text-only-button-title {
+                              font-size: 14px;
+                              font-weight: 400;
+                              color: $actions-blue;
+                            }
+                          }
+
+                          &.delete-action-button {
+                            .text-only-button-title {
+                              font-size: 14px;
+                              font-weight: 400;
+                              color: $actions-red;
+                            }
+                          }
+
+                          &.common-action-button {
+                            // width: 81px;
+                            // height: 26px;
+                            width: 50px;
+                            height: 26px;
+                            border-radius: 80px;
+                            font-size: 10px;
+                            font-weight: 400;
+                            color: $white;
+
+                            &.accept-button {
+                              background-color: $tag-blue;
+                            }
+
+                            &.reject-button {
+                              background-color: $tag-red;
+                            }
+
+                            &.upgrade-button {
+                              font-size: 8px;
+                              width: 70px;
+                            }
+                          }
+
+                          &.table-rounded-buttons {
+                            width: max-content;
+                            height: 32px;
+                            border-radius: 90px;
+                            background-color: $white;
+                            border: 1px solid $black;
+                            padding: 8px 18px;
+                            gap: 4px;
+                            align-items: center;
+
+                            .primary-button-title {
+                              font-weight: 400;
+                              font-size: 10px;
+                              color: $black;
+                            }
+
+                            &.error {
+                              border: 1px solid $error;
+
+                              .primary-button-title {
+                                color: $error;
+                              }
+                            }
+
+                            &.success {
+                              border: 1px solid $dark-success-green;
+
+                              .primary-button-title {
+                                color: $dark-success-green;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

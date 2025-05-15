@@ -1,0 +1,112 @@
+@import "../../styles/common";
+
+.custom-case-details-drawer-header {
+  .heading {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .caption {
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 400;
+  }
+
+  .steps-wrapper {
+    @include flexBox(row, center, center);
+
+    gap: 20px;
+
+    .step {
+      width: 220px;
+      height: 8px;
+      border-radius: 50px;
+      background-color: $mercury-darkest;
+      transition: all 0.3s linear;
+
+      &.active {
+        background-color: $tag-blue;
+        transition: all 0.3s linear;
+      }
+    }
+  }
+}
+
+.radiology-drawer-inner-form {
+  @include flexBox(column);
+
+  width: 100%;
+
+  .form-icon {
+    height: 65px;
+    width: 65px;
+  }
+
+  .main-heading {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+
+  .caption {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .ant-btn.drawer-continue-button {
+    margin-top: 50px;
+    height: 54px;
+    justify-content: center;
+  }
+
+  .patient-details-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+    width: 100%;
+  }
+
+  .patient-details-prefilled-wrapper {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 16px 55px;
+
+    background-color: $lighter-gray;
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+
+    .field-container {
+      .label {
+        font-weight: 400;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .value {
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+
+    .form-field-wrapper {
+      grid-column: 1/3;
+
+      width: 70%;
+    }
+  }
+
+  .form-headings {
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 20px;
+    align-self: center;
+  }
+
+  .patient-details-upload-wrapper {
+    @include flexBox(column);
+
+    gap: 30px;
+    width: 100%;
+  }
+}

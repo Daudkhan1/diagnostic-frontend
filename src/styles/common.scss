@@ -1,0 +1,234 @@
+@import "./colors", "./breakpoints", "./mixins";
+
+.fixed-container-height {
+  @include custom-scrollbar();
+
+  height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.form-field-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .form-field-label {
+    position: relative;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    .label-asteric {
+      position: absolute;
+
+      margin-left: 3px;
+      color: $tag-red;
+    }
+  }
+}
+
+.custom-cards-height {
+  max-height: calc(100vh - 177px);
+  height: 100%;
+}
+
+.case-study-layout-container {
+  @extend .custom-cards-height;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.patient-information-container {
+  @include flexBox(column);
+
+  gap: 15px;
+
+  .patient-name-wrapper {
+    @include flexBox(row, center);
+
+    gap: 12px;
+
+    .patient-avatar {
+      @include flexBox(row, center, center);
+
+      height: 52px;
+      width: 52px;
+      border-radius: 50%;
+      background-color: $comment-blue;
+
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .patient-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .patient-generic-details-wrapper {
+    @include flexBox(row);
+
+    gap: 30px;
+    background-color: $lighter-gray;
+    border-radius: 16px;
+    padding: 15px;
+    width: 100%;
+
+    .heading {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .content-holding-wrapper {
+      width: 100%;
+    }
+
+    .report-name-and-button {
+      @include flexBox(row, center, space-between);
+
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 400;
+
+      .ant-btn.download-report-button {
+        border: 1px solid #09c97f;
+        padding: 0 14px;
+        border-radius: 80px;
+
+        .text-only-button-title {
+          font-size: 12px;
+          font-weight: 400;
+          color: #09c97f;
+        }
+      }
+    }
+  }
+}
+
+.comments-listing-container {
+  @include flexBox(column);
+
+  gap: 10px;
+}
+
+.slide-details-layout-container {
+  @extend .custom-cards-height;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+
+  .slides-list-container {
+    @include flexBox(column);
+
+    gap: 12px;
+  }
+
+  .no-slide-selected {
+    @include flexBox(row, center, center);
+
+    padding: 70px 0;
+  }
+}
+
+.annotation-details-layout-container {
+  max-height: calc(100vh - 177px);
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+
+  &.annotation-details-full-screen-container {
+    max-height: calc(100vh - 48px);
+
+    grid-template-columns: 0.75fr 2fr;
+
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.custom-tooltip .ant-tooltip-inner {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid #ddd !important;
+  border-radius: 12px;
+}
+
+.custom-tooltip .ant-tooltip-arrow {
+  display: none;
+}
+
+.organ-list-cell {
+  @include flexBox();
+
+  gap: 5px;
+}
+
+.status-box {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 20px;
+  margin-bottom: 4px;
+  margin-top: 2px;
+  text-align: center;
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;
+
+  @each $index, $colors in $color-schemes {
+    &.status-box-#{$index} {
+      border: 1px solid map-get($colors, border);
+      background-color: map-get($colors, "background");
+      color: map-get($colors, text);
+    }
+  }
+}
+
+.more-organs-label {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 20px;
+  margin-bottom: 4px;
+  margin-top: 2px;
+  text-align: center;
+
+  border: 1px solid #6a4c93;
+  background-color: #d5c4e0;
+  color: #6a4c93;
+}

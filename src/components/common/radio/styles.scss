@@ -1,0 +1,56 @@
+@import "../../../styles/common";
+
+.admin-table-type-selection-container {
+  width: max-content;
+  background-color: $white;
+  padding: 8px;
+  border-radius: 10px;
+
+  .ant-radio-group {
+    background-color: $white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.custom-selection-radio-group {
+      .ant-radio-button-wrapper {
+        border: none;
+        height: unset;
+        background: unset;
+        border-radius: 10px;
+        padding: 6px 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          color: $primary;
+        }
+
+        &::before {
+          content: none;
+        }
+
+        .ant-radio-button {
+          font-weight: 400;
+          color: $black;
+        }
+
+        &.ant-radio-button-wrapper-checked {
+          background-color: $primary;
+
+          &:hover {
+            color: $white;
+          }
+
+          .ant-radio-button {
+            font-weight: 600;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

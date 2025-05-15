@@ -1,0 +1,123 @@
+@import "../../../styles/common";
+
+.select-container {
+  &.prefix-icon {
+    @include flexBox(row, center);
+
+    box-shadow: 0px 10px 20px 0px #0000000d;
+    border: 1px solid #e9f2f4;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: $white;
+
+    &.disabled {
+      cursor: not-allowed;
+      background-color: $lighter-gray;
+
+      .ant-select {
+        &.custom-select {
+          &.ant-select-disabled {
+            .ant-select-selector {
+              background-color: $lighter-gray;
+            }
+          }
+        }
+      }
+    }
+
+    .prefix-icon-wrapper {
+    }
+
+    .ant-select {
+      &.custom-select {
+        &.language-select-field {
+          .ant-select-selector {
+            border: none;
+            box-shadow: none;
+            padding: 0 8px;
+
+            .ant-select-selection-item {
+              font-size: 14px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-field-wrapper {
+  .ant-select {
+    &.common-select-field {
+      &:not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover
+        .ant-select-selector {
+        border-color: $black;
+      }
+
+      &:hover {
+        .ant-select-selector {
+          border-color: $black;
+        }
+      }
+
+      .ant-select-selector {
+        border-radius: 12px;
+        padding: 0 16px;
+      }
+
+      &.ant-select-focused {
+        &:where(.css-dev-only-do-not-override-apn68).ant-select-outlined:not(
+            .ant-select-disabled
+          ):not(.ant-select-customize-input):not(.ant-pagination-size-changer) {
+          .ant-select-selector {
+            border-color: $black;
+          }
+        }
+      }
+
+      &.ant-select-open {
+        .ant-select-selector {
+          border-color: $black;
+        }
+      }
+
+      &.common-select-field-error {
+        &:not(.ant-select-customize-input):not(
+            .ant-pagination-size-changer
+          ):hover
+          .ant-select-selector {
+          border-color: $tag-red;
+        }
+
+        &:hover {
+          .ant-select-selector {
+            border-color: $tag-red;
+          }
+        }
+
+        .ant-select-selector {
+          border-color: $tag-red;
+        }
+
+        &.ant-select-focused {
+          &:where(.css-dev-only-do-not-override-apn68).ant-select-outlined:not(
+              .ant-select-disabled
+            ):not(.ant-select-customize-input):not(
+              .ant-pagination-size-changer
+            ) {
+            .ant-select-selector {
+              border-color: $tag-red;
+            }
+          }
+        }
+
+        &.ant-select-open {
+          .ant-select-selector {
+            border-color: $tag-red;
+          }
+        }
+      }
+    }
+  }
+}

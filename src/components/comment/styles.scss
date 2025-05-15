@@ -1,0 +1,74 @@
+@import "../../styles/common";
+
+.comment-main-container {
+  @include flexBox(column);
+
+  gap: 10px;
+  width: 100%;
+
+  .comment-header-container {
+    @include flexBox(row, center, space-between);
+
+    width: 100%;
+
+    .comment-user-wrapper {
+      @include flexBox(row, center);
+
+      gap: 12px;
+
+      .user-avatar {
+        @include flexBox(row, center, center);
+
+        height: 36px;
+        width: 36px;
+        border-radius: 50%;
+        background-color: $comment-blue;
+
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .user-name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+
+    .ant-btn {
+      &.edit-comment-button {
+        width: max-content;
+        height: max-content;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+
+        .ant-btn-icon {
+          > svg {
+            width: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .comment-content-wrapper {
+    @include flexBox(column);
+
+    background-color: $lighter-gray;
+    padding: 15px;
+    border-radius: 16px;
+    gap: 8px;
+    width: 100%;
+
+    .comment {
+      font-size: 14px;
+    }
+
+    .time {
+      align-self: flex-end;
+
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}

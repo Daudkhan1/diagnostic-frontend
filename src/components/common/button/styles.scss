@@ -1,0 +1,62 @@
+@import "../../../styles/common";
+
+.ant-btn {
+  &.common-primary-button {
+    //   height: 54px;
+    height: 40px;
+    width: 100%;
+    background-color: $primary;
+    border-radius: 12px;
+    line-height: 0;
+
+    &.danger {
+      background-color: $tag-red;
+
+      &:hover {
+        background-color: $tag-red;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.6;
+      color: $white;
+    }
+
+    &.simple {
+      background-color: $white;
+      border: 1px solid $black;
+      color: $black;
+      font-weight: 600;
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
+    }
+  }
+
+  &.ant-btn-text.common-text-only-button {
+    width: max-content;
+    height: max-content;
+    padding: 0;
+    margin: 0;
+
+    .text-only-button-title {
+      // font-size: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: $black;
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &.common-icon-only-button {
+    padding: 0;
+    height: 36px;
+    width: 36px;
+    border-radius: 100%;
+  }
+}

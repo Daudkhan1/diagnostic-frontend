@@ -1,0 +1,291 @@
+@import "../../../styles/common";
+
+.common-card-header {
+  display: flex;
+  justify-content: end;
+  &.annotation-card-custom-header {
+    flex-direction: row-reverse;
+    height: unset;
+    padding: 20px;
+
+    .annotations-card-header-container {
+      @include flexBox(column);
+
+      gap: 20px;
+      width: 100%;
+
+      .anno-header {
+        @include flexBox(row, center);
+
+        gap: 16px;
+
+        .heading {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+
+      .ant-btn {
+        &.navigate-annotation-button {
+          background-color: #2c2c2c;
+          min-width: 24px;
+          height: 24px;
+          width: 24px;
+
+          .ant-btn-icon {
+            > svg {
+              width: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .assign-to-me-button {
+    height: 36px;
+    width: 136px;
+    background: transparent;
+    border: 1px solid $black;
+    color: $black;
+    border-radius: 90px;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    &:hover {
+      background: transparent !important;;
+      color: $black !important;;
+    }
+  }
+}
+
+.annotation-list-container {
+  @include custom-scrollbar();
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  height: calc(100vh - 380px);
+  overflow-y: auto;
+
+  .annotation-tile-wrapper {
+    @include flexBox(row, center);
+
+    cursor: pointer;
+
+    gap: 16px;
+    width: 100%;
+    border: 1px solid #d3d3d3;
+    background-color: $white;
+    border-radius: 16px;
+    padding: 12px;
+    transition: all 0.3s linear;
+
+    &.active-card {
+      border-color: $primary-hover-blue;
+      background-color: $hover-gray;
+      // pointer-events: none;
+
+      transition: all 0.3s linear;
+    }
+
+    .card-body {
+      @include flexBox(row, center, space-between);
+
+      width: 100%;
+
+      .details-wrapper {
+        @include flexBox(column);
+
+        gap: 8px;
+        width: 100%;
+
+        .card-header{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          height: 28px;
+          align-items: center;
+          .info-icon-section{
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            .annotation_count{
+              width: 127px;
+            }
+          }
+          .button-section{
+            width: 55px;
+            display: flex;
+            justify-content: end;
+            gap: 5px;
+            .ant-btn {
+              &.annotation-action-button {
+                width: 22px;
+                min-width: 24px;
+                height: 24px;
+
+                &.edit {
+                  background-color: $light-blue !important;
+                }
+
+                &.delete {
+                  background-color: $light-red;
+                }
+
+                .ant-btn-icon {
+                  > svg {
+                    height: 14px;
+                    width: 14px;
+                  }
+                }
+              }
+            }
+          }
+          }
+        }
+        .content-section-details{
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          .header-content {
+            display: flex;
+            height: 42px;
+            gap: 5px;
+            .name-section{
+              width: 125px;
+              .name-heading{
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 6px;
+              }
+              .type-heading{
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 6px;
+              }
+              .row-content-ellipsis {
+                white-space: nowrap; 
+                overflow: hidden; 
+                text-overflow: ellipsis;
+                display: block;
+                max-width: 100%; 
+              }
+              .row-content{
+                font-size: 14px;
+                font-weight: 600;
+              }
+            }
+          }
+          .button-section{
+            width: 55px;
+            display: flex;
+            justify-content: end;
+            gap: 7px;
+            .ant-btn {
+              &.annotation-action-button {
+                width: 24px;
+                min-width: 24px;
+                height: 24px;
+
+                &.cross {
+                  background-color: $light-red !important;
+                }
+
+                &.tick {
+                  background-color: $tag-blue;
+                }
+
+                &.undo {
+                  background-color: $light-success-green;
+                }
+
+                .ant-btn-icon {
+                  > svg {
+                    height: 14px;
+                    width: 14px;
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+  }
+}
+
+
+.mark-as-complete-wrapper {
+  position: absolute;
+  bottom: -77px;
+  height: 76px;
+  left: 0;
+  width: 100%;
+  border-radius: 22px;
+
+  display: flex;
+  align-items: center;
+
+  &.top-nav-button {
+    top: 0;
+    right: 188px;
+    left: unset;
+    width: unset;
+    height: 55px;
+
+    .ant-btn.mark-as-complete-button {
+      height: 55px;
+    }
+  }
+
+  .ant-btn.mark-as-complete-button {
+    width: 185px;
+    height: 44px;
+    margin-left: 20px;
+    background-color: $tag-green;
+
+    &:hover {
+      background-color: $tag-green;
+    }
+  }
+}
+
+.annotation-form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 10px;
+
+  .slide-detail {
+    grid-column: 1/3;
+
+    .heading {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+
+  .form-field-wrapper {
+    &:last-child {
+        grid-column: 1/3;
+    }
+    &.full-width {
+      grid-column: 1/3;
+      .new-type-field {
+          width: 49%;
+      }
+    }
+  }
+
+  .form-footer-buttons {
+    display: flex;
+    gap: 16px;
+  }
+}

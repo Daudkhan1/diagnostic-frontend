@@ -1,0 +1,122 @@
+@import "../../styles/common";
+
+.patient-detail {
+  @include flexBox(column);
+
+  gap: 5px;
+
+  .section-heading {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .heading {
+    font-size: 12px;
+    font-weight: 400 !important;
+    color: $dark-gray;
+  }
+
+  .content {
+    font-size: 14px;
+    font-weight: 600;
+
+    &.slides {
+      color: $tag-blue;
+    }
+
+    &.annotations {
+      color: $warning-yellow;
+    }
+  }
+
+  .organ-list {
+    display: flex;
+    gap: 12px;
+  }
+
+  @media (max-width: 1440px) {
+    .organ-list {
+      flex-direction: column;
+    }
+  }
+  
+  .status-box {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 20px;
+    margin-bottom: 4px;
+    margin-top: 2px;
+    text-align: center;
+    overflow: hidden;  
+    white-space: nowrap;  
+    text-overflow: ellipsis;
+  
+    @each $index, $colors in $color-schemes {
+      &.status-box-#{$index} {
+        border: 1px solid map-get($colors, border);
+        background-color: map-get($colors, "background");
+        color: map-get($colors, text);
+      }
+    }
+  }  
+
+  .details {
+    font-size: 14px;
+  }
+}
+.case-transfer-wrapper {
+  .transfer-heading {
+    font-size: 14px;
+    color: $black;
+    margin-bottom: 8px;
+  }
+
+  .case-transfer-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 17px;
+  }
+
+  .transfer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    object-fit: cover;
+  }
+
+  .transfer-info {
+    .transfer-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: $black;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .transfer-designation {
+      font-size: 12px;
+      font-weight: 400;
+      color: $dark-gray;
+      margin-top: 6px;
+    }
+  }
+
+  .transfer-date-label {
+    font-size: 14px;
+    color: $dark-gray;
+    margin-top: 17px;
+    font-weight: 400;
+  }
+
+  .transfer-date {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+}

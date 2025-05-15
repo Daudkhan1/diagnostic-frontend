@@ -1,0 +1,382 @@
+@import "../../styles/common";
+
+.sidemenu-main-container {
+  @extend .fixed-container-height;
+
+  background-color: $white;
+  border-radius: 20px;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+  transition: width 0.1s linear;
+
+  @media (min-width: $breakpoint-large) {
+    padding: 20px;
+  }
+
+  &.sidemenu-collapsed {
+    padding: 5px;
+    width: 50px;
+    transition: width 0.1s linear;
+
+    .collapse-button {
+      transform: rotate(90deg);
+      transition: transform 0.1s linear;
+    }
+
+    .sidemenu-layout-container {
+      .sidemenu-innermenu-wrapper {
+        .sidemenu-icon {
+          margin-top: 60px;
+          width: 30px;
+          transition: width 0.1s linear;
+        }
+
+        .ant-menu.custom-sidemenu-container {
+          align-items: center;
+          gap: 10px;
+
+          .ant-menu-item {
+            width: 100%;
+            padding: 0 5px !important;
+            justify-content: center;
+
+            > svg {
+              width: 22px;
+              height: 22px;
+            }
+
+            .ant-menu-title-content {
+              display: none;
+            }
+          }
+
+          .ant-menu-submenu {
+            &.ant-menu-submenu-selected {
+              .ant-menu-submenu-title {
+                background: linear-gradient(
+                  92.33deg,
+                  #418cfd 0.01%,
+                  #20467e 99.99%
+                );
+
+                > svg {
+                  > path {
+                    fill: $white;
+                  }
+                }
+              }
+            }
+
+            .ant-menu-submenu-title {
+              padding: 0 5px !important;
+              justify-content: center;
+              width: 100%;
+
+              > svg {
+                width: 22px;
+                height: 22px;
+              }
+
+              .ant-menu-title-content {
+                display: none;
+              }
+
+              .ant-menu-submenu-arrow {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      .sidemenu-profile-container {
+        padding: 0;
+        background-color: $white;
+
+        .profile-detail-container {
+          display: none;
+        }
+
+        .ant-btn.common-primary-button.sidemenu-signout-button {
+          background-color: $white;
+          padding: 5px;
+
+          .primary-button-icon {
+            width: 100%;
+
+            > svg {
+              width: 27px;
+              height: 27px;
+            }
+          }
+
+          .primary-button-title {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .collapse-button {
+    cursor: pointer;
+
+    position: absolute;
+    right: 15px;
+    top: 20px;
+
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $primary;
+    transform: rotate(-90deg);
+    transition: transform 0.1s linear;
+  }
+
+  .sidemenu-layout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    .sidemenu-innermenu-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+
+      .sidemenu-icon {
+        margin-top: 12px;
+        margin-bottom: 34px;
+        transition: width 0.1s linear;
+      }
+
+      .ant-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 3.5px;
+
+        &.ant-menu-sub {
+          background-color: $white;
+
+          &.ant-menu-hidden {
+            display: none;
+          }
+        }
+
+        &.custom-sidemenu-container {
+          @include custom-scrollbar();
+
+          border-inline-end: none;
+          height: calc(100vh - 390px);
+          overflow: auto;
+
+          .ant-menu-item {
+            margin: 0;
+            padding: 0 10px !important;
+            min-height: 40px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 12px;
+
+            @media (min-width: $breakpoint-large) {
+              min-height: 52px;
+              padding: 4px 24px !important;
+            }
+
+            .ant-menu-title-content {
+              font-size: 14px;
+              font-weight: 400;
+
+              @media (min-width: $breakpoint-large) {
+                font-size: 14px;
+              }
+            }
+
+            > svg {
+              width: 18px;
+              height: 18px;
+
+              @media (min-width: $breakpoint-large) {
+                width: 24px;
+                height: 24px;
+              }
+            }
+
+            &.ant-menu-item-selected {
+              background: linear-gradient(
+                92.33deg,
+                #418cfd 0.01%,
+                #20467e 99.99%
+              );
+
+              > svg {
+                > path {
+                  fill: $white;
+                }
+              }
+
+              .ant-menu-title-content {
+                font-size: 14px;
+                font-weight: 600;
+                color: $white;
+
+                @media (min-width: $breakpoint-large) {
+                  font-size: 14px;
+                }
+              }
+            }
+
+            &.ant-menu-item-active {
+              background-color: $white;
+            }
+          }
+
+          .ant-menu-submenu {
+            &.menu-submenu-selected {
+            }
+
+            &.ant-menu-submenu-open {
+              .ant-menu-submenu-title {
+                border: 1px solid #3f8bfd;
+
+                > svg {
+                  width: 18px;
+                  height: 18px;
+
+                  @media (min-width: $breakpoint-large) {
+                    width: 24px;
+                    height: 24px;
+                  }
+
+                  > path {
+                    fill: #3f8bfd;
+                  }
+                }
+
+                .ant-menu-title-content {
+                  font-size: 14px;
+                  font-weight: 600;
+                  color: #3f8bfd;
+
+                  @media (min-width: $breakpoint-large) {
+                    font-size: 14px;
+                  }
+                }
+
+                .ant-menu-submenu-arrow {
+                  color: #3f8bfd;
+
+                  // top: 55%;
+                  // inset-inline-end: 15px;
+                  //   top: 48%;
+                  //   inset-inline-end: 10px;
+                  // transform: rotate(180deg);
+                }
+              }
+            }
+
+            &.ant-menu-submenu-active {
+              .ant-menu-submenu-title {
+                background-color: $white;
+              }
+            }
+
+            .ant-menu-submenu-title {
+              margin: 0;
+              padding: 0 10px !important;
+              min-height: 40px;
+
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              @media (min-width: $breakpoint-large) {
+                padding: 4px 24px !important;
+                min-height: 52px;
+              }
+
+              > svg {
+                width: 18px;
+                height: 18px;
+
+                @media (min-width: $breakpoint-large) {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
+
+              .ant-menu-title-content {
+                font-size: 14px;
+                font-weight: 400;
+
+                @media (min-width: $breakpoint-large) {
+                  font-size: 14px;
+                }
+              }
+
+              // .ant-menu-submenu-arrow {
+              //   top: 48%;
+              //   inset-inline-end: 10px;
+              //   transform: rotate(-90deg);
+              // }
+            }
+          }
+        }
+      }
+    }
+
+    .sidemenu-profile-container {
+      background-color: $light-gray;
+      padding: 12px;
+      width: 100%;
+
+      position: relative;
+
+      .profile-detail-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+
+        .profile-icon {
+          position: absolute;
+
+          width: 45px;
+          height: 45px;
+          top: -25px;
+          outline: 3px solid #ffffff;
+          border-radius: 50%;
+        }
+
+        .profile-name {
+          font-size: 14px;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        .profile-role {
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+
+      .ant-btn {
+        &.sidemenu-signout-button {
+          background-color: transparent;
+          color: $red;
+          border: 1px solid $red;
+          border-radius: 60px;
+        }
+      }
+    }
+  }
+}

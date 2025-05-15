@@ -1,0 +1,38 @@
+@import "../../styles/common";
+
+.setting-form-inner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; // space between boxes
+  width: 100%;
+
+  .settings-box {
+    background-color: $white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px $black(0, 0, 0, 0.1);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  
+    .settings-box-heading {
+      font-weight: 600;
+      font-size: 16px;
+      margin: 0;
+    }
+  
+    .settings-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .ant-switch {
+          flex-shrink: 0;
+        }
+        .settings-box-heading {
+          margin: 0;
+          flex: 1;
+        }
+      }
+  }
+}

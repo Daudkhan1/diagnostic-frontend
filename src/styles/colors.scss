@@ -1,0 +1,47 @@
+$white: #ffffff;
+$black: #000000;
+$charcoal-black: #2c2c2c;
+$app-background-iceblue: #d9e8ff;
+
+$primary: #418cfd;
+$secondary-blue: #3675d3;
+$tag-blue: #3f8bfd;
+$actions-blue: #265ba5;
+$comment-blue: #a0c5fe;
+$primary-hover-blue: #80b2fe;
+$light-blue: #3F8BFD;
+
+$tag-green: #32d294;
+$success-green: #09C97F;
+$light-success-green: #ADEDD4;
+
+$red: #c8102e;
+$error: #d32f2f;
+$tag-red: #f95668;
+$badge-red: #e60a2e;
+$actions-red: #f32f1b;
+$light-red: #FEDDE1;
+
+$light-gray: #f8f8f8;
+$lighter-gray: #f5f5f5;
+$gray: #c9c9c9;
+$silver: #d9d9d9;
+$mercury-darkest: #e5e5e5;
+$card-gray: #f6f7f8;
+$slight-gray: #d5d5d5;
+$preview-gray: #d3d3d3;
+$preview-light-gray: #e7e7e7;
+$hover-gray: #eff5fe;
+$placeholder-gray: #949ca9;
+$dark-gray: #969696;
+
+$warning-yellow: #f8b15d;
+$dark-success-green: #07A76A;
+
+$color-schemes: (
+  0: (border: #07A76A, background: #ADEDD4, text: #07A76A),
+  1: (border: #F4A261, background: #FFE5D0, text: #F4A261),
+  2: (border: #E76F51, background: #FFD1C4, text: #E76F51),
+  3: (border: #6A4C93, background: #D5C4E0, text: #6A4C93),
+  4: (border: #E9C46A, background: #FFF3CD, text: #E9C46A),
+);

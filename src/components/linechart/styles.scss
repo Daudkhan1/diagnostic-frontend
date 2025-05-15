@@ -1,0 +1,30 @@
+@import "../../styles/common";
+
+.line-chart-main-container {
+  padding: 24px;
+  border-radius: 22px;
+  background-color: $white;
+  width: 100%;
+
+  .chart-header-actions {
+    @include flexBox(row, center, space-between);
+
+    width: 100%;
+
+    .heading {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .form-field-wrapper {
+      max-width: 130px;
+    }
+  }
+
+  .line-chart-custom-wrapper {
+    @include flexBox(row, center, center);
+
+    padding: 24px;
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,74 @@
+@import "../../../styles/common";
+
+.ant-drawer {
+  .ant-drawer-mask {
+  }
+
+  .ant-drawer-content-wrapper {
+    .ant-drawer-content {
+      &.common-drawer-container {
+        .ant-drawer-header {
+          padding: 25px;
+          // padding: 40px;
+          padding-bottom: 0;
+          border: 0;
+
+          position: relative;
+
+          .ant-drawer-header-title {
+            text-align: center;
+
+            .ant-drawer-close {
+              &:hover {
+                background-color: transparent;
+              }
+
+              .custom-close-icon {
+                position: absolute;
+                top: 32px;
+                // top: 46px;
+                left: 40px;
+                width: 30px;
+                height: 30px;
+              }
+            }
+
+            .ant-drawer-title {
+              font-size: 28px;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .ant-drawer-body {
+          padding: 25px;
+          // padding: 40px;
+          // padding-top: 30px;
+        }
+      }
+
+      &.radiology-drawer {
+        .ant-drawer-body {
+          @include flexBox(row, center, center);
+
+          max-width: 540px;
+          margin: auto;
+          width: 100%;
+        }
+
+        &.patient-details {
+          .ant-drawer-body {
+            @include custom-scrollbar();
+
+            align-items: unset;
+            padding: 25px 0;
+
+            .ant-btn.drawer-continue-button {
+              min-height: 54px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
