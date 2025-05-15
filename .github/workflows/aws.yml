@@ -31,10 +31,10 @@ jobs:
 
 
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            docker build -t 831926608672.dkr.ecr.ap-south-1.amazonaws.com/diagnostic-ui:latest .
+            docker build --build-arg BUILD_ENV=production -t 831926608672.dkr.ecr.ap-south-1.amazonaws.com/diagnostic-ui:latest .
             docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:latest
           elif [ "${{ github.ref }}" == "refs/heads/development" ]; then
-            docker build -t 831926608672.dkr.ecr.ap-south-1.amazonaws.com/diagnostic-ui:dev .
+            docker build --build-arg BUILD_ENV=development -t 831926608672.dkr.ecr.ap-south-1.amazonaws.com/diagnostic-ui:dev .
             docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:dev
           fi
 
