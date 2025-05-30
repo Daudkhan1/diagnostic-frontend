@@ -38,7 +38,7 @@ jobs:
           fi
 
 
-      # Step 4: Trigger Deployment in Second Repository
+      # Step 4: Trigger Deployment in Second Repository.
       - name: Trigger Deployment in Second Repository
         run: |
           echo "Triggering deployment in second repository..."
