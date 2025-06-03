@@ -43,11 +43,11 @@ jobs:
           aws ecr get-login-password --region ${{ secrets.AMAZON_S3_REGION_NAME }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com
 
           if [ "${GITHUB_REF}" == "refs/heads/main" ]; then
-            docker build --build-arg BUILD_ENV=production -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:latest .
-            docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:latest
+            docker build --build-arg BUILD_ENV=production -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:${{ steps.vars.outputs.TAG }} .
+            docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:${{ steps.vars.outputs.TAG }}
           elif [ "${GITHUB_REF}" == "refs/heads/development" ]; then
-            docker build --build-arg BUILD_ENV=development -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:dev .
-            docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:dev
+            docker build --build-arg BUILD_ENV=development -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:${{ steps.vars.outputs.TAG }} .
+            docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:${{ steps.vars.outputs.TAG }}
           fi
 
       # Step 4: Trigger Deployment in Second Repository.
