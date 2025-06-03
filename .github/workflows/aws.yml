@@ -50,7 +50,7 @@ jobs:
             docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AMAZON_S3_REGION_NAME }}.amazonaws.com/diagnostic-ui:${{ steps.vars.outputs.TAG }}
           fi
 
-      # Step 4: Trigger Deployment in Second Repository.
+      # Step 4: Trigger Deployment in Second Repository..
       - name: Trigger Deployment in Second Repository
         run: |
           echo "Triggering deployment in second repository..."
