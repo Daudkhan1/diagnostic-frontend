@@ -29,7 +29,7 @@ jobs:
           fi
 
 
-      # Step 2: Configure AWS CLI.
+      # Step 2: Configure AWS CLI
       - name: Configure AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
